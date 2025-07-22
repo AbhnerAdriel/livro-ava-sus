@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro de Exemplo</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style-modulo.css">
+</head>
+
+<body style="background-image: url(./assets/images/bg-pagina.png); background-size: cover;" id="modulo-container">
+    <div id="pagina-modulo">
+        <header id="cabecalho-topo-modulo">
+            <h1 id="titulo-modulo">
+                <span class="numeracao-modulo">Módulo 1</span>
+                <span class="assumto-tema-modulo">As Práticas Integrativas e Complementares no Brasil e no Mundo</span>
+            </h1>
+            <hr>
+        </header>
+
+        <main id="conteudo-pagina-container">
+            <section id="banner-modulo"
+                style="background-image: url(./assets/images/homem-praticar-ioga-banner-modulo-1.jpg);">
+                <div class="overlap-black"></div>
+                <div class="box-texto-banner">
+                    <h2>Introdução à Meditação</h2>
+                </div>
+            </section>
+
+            <section class="imagem-texto-container">
+                <div class="image-content">
+                    <figure>
+                        <img src="./assets/images/blob-mulher-meditando.png" alt="Imagem ilustrativa de exemplo">
+                    </figure>
+                </div>
+                <article class="text-content">
+                    <h2>Boas-vindas!</h2>
+                    <p>
+                        <span class="highlight">Olá, ABHNER! Bem-vindo(a) ao módulo introdutório sobre Meditação e
+                            Práticas Integrativas e Complementares em Saúde (PICS).</span> Você já ouviu falar sobre as
+                        PICS?
+                    </p>
+                    <p>
+                        Este módulo foi pensado para você, que deseja compreender o papel da meditação no contexto da
+                        saúde pública
+                        brasileira...
+                    </p>
+                </article>
+            </section>
+
+            <section class="caixa-estilizada-container">
+                <div class="linha-caixa-estilizada"></div>
+                <div class="caixa-estilizada">
+                    <h2>Ao longo do percurso, você será convidado(a) a:</h2>
+                    <ol>
+                        <li>Conhecer o histórico e a expansão das PICS;</li>
+                        <li>Refletir sobre a gestão dessas práticas nos serviços de saúde;</li>
+                        <li>Compreender a importância da meditação como prática terapêutica reconhecida pelo SUS;</li>
+                        <li>Compartilhar sua experiência e expectativas por meio de questionário e fóruns colaborativos.
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="texto-corrido-container">
+                <div class="caixa-azul">
+                    <p>
+                        Com vídeos, textos curtos, experiências e materiais complementares, nossa proposta é oferecer
+                        aprendizado
+                        acessível.
+                    </p>
+                    <p>
+                        <span class="highlight">Este curso é autoinstrucional</span>, mas conta com o apoio de
+                        facilitadores(as).
+                    </p>
+                </div>
+            </section>
+        </main> <!-- conteudo-pagina-container -->
+    </div><!-- pagina-modulo -->
+
+    <!-- Controle principal -->
+    <div class="pagination-container">
+        <h2>Progresso do Módulo</h2>
+        <div class="nav-buttons">
+            <div class="nav-button" onclick="prevPage()">
+                <div class="circle">←</div>
+                <span>RETORNAR</span>
+            </div>
+
+            <div class="page-indicator" id="page-indicator">Página 1 de 4</div>
+
+            <div class="nav-button" onclick="nextPage()">
+                <span>AVANÇAR</span>
+                <div class="circle">→</div>
+            </div>
+        </div>
+        <div class="dots" id="dots-container">
+            <!-- Dots gerados dinamicamente -->
+        </div>
+    </div>
+
+    <!-- Controle flutuante -->
+    <div class="page-control" id="pageControl">
+        <button class="circle-btn" onclick="prevPage()">←</button>
+        <div class="page-number" id="pageNumber">Página 1</div>
+        <button class="circle-btn" onclick="nextPage()">→</button>
+    </div>
+
+    <footer id="footer-pagina-modulo" style="background-image: url(./assets/images/bg-rodape.png);"></footer>
+
+    <script type="text/javascript" src="./assets/js/script-modulo.js"></script>
+
+    <script>
+        const totalPages = 4;
+        let currentPage = 1;
+
+        const pageIndicator = document.getElementById('page-indicator');
+        const dotsContainer = document.getElementById('dots-container');
+        const pageNumber = document.getElementById('pageNumber');
+        const pageControl = document.getElementById('pageControl');
+
+        function updateUI() {
+            // Atualiza ambos os textos
+            pageIndicator.textContent = `Página ${currentPage} de ${totalPages}`;
+            pageNumber.textContent = `Página ${currentPage}`;
+
+            // Atualiza os dots
+            dotsContainer.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.textContent = i;
+                if (i === currentPage) dot.classList.add('active');
+                dot.onclick = () => {
+                    currentPage = i;
+                    updateUI();
+                };
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                updateUI();
+            }
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updateUI();
+            }
+        }
+
+        // Oculta controle flutuante no fim da página
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.innerHeight + window.scrollY;
+            const documentHeight = document.body.offsetHeight;
+
+            if (scrollPosition >= documentHeight - 650) {
+                pageControl.classList.add('hidden');
+            } else {
+                pageControl.classList.remove('hidden');
+            }
+        });
+
+        // Inicialização
+        updateUI();
+    </script>
+</body>
+
+</html>
