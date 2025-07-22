@@ -145,13 +145,15 @@
 
 .imagem-texto-container .text-content h2 {
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin: 20px;
     color: var(--cor-azul);
 }
 
 .imagem-texto-container .text-content p {
     font-size: 1.1rem;
+    text-align: justify;
     color: var(--cor-escura-50);
+    margin-bottom: 15px;
 }
 
 /* ============= Estilo para seção com texto grande ============= */
