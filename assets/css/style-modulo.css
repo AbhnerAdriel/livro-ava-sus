@@ -46,7 +46,7 @@
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     line-height: 40px;
-    padding-left: 2%;
+    padding: 0 5%;
     font-size: var(--cor-escura-100);
 }
 
@@ -464,7 +464,7 @@
 /* ============= Estilo do rodapé do Módulo (Livro) ============= */
 #footer-pagina-modulo {
     width: 100%;
-    height: 400px;
+    height: 300px;
     background-color: transparent;
     background-position: bottom center;
     background-repeat: no-repeat;
