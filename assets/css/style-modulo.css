@@ -145,7 +145,7 @@
 
 .imagem-texto-container .text-content h2 {
     font-size: 2rem;
-    margin: 20px;
+    margin: 20px 0;
     color: var(--cor-azul);
 }
 
