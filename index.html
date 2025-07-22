@@ -19,7 +19,61 @@
         </header>
 
         <main id="conteudo-pagina-container">
-            <section id="banner-modulo"
+
+        </main> <!-- conteudo-pagina-container -->
+    </div><!-- pagina-modulo -->
+
+    <!-- Controle principal -->
+    <div class="pagination-container">
+        <h2>Progresso do Módulo</h2>
+        <div class="nav-buttons">
+            <div class="nav-button" onclick="prevPage()">
+                <div class="circle">←</div>
+                <span>RETORNAR</span>
+            </div>
+
+            <div class="page-indicator" id="page-indicator">Página 1 de 4</div>
+
+            <div class="nav-button" onclick="nextPage()">
+                <span>AVANÇAR</span>
+                <div class="circle">→</div>
+            </div>
+        </div>
+        <div class="dots" id="dots-container">
+            <!-- Dots gerados dinamicamente -->
+        </div>
+    </div>
+
+    <!-- Controle flutuante -->
+    <div class="page-control" id="pageControl">
+        <button class="circle-btn" onclick="prevPage()">←</button>
+        <div class="page-number" id="pageNumber">Página 1</div>
+        <button class="circle-btn" onclick="nextPage()">→</button>
+    </div>
+
+    <footer id="footer-pagina-modulo" style="background-image: url(./assets/images/bg-rodape.png);">
+        <div class="container-logos-footer">
+            <img src="./assets/images/instituicoes-logo-rodape.png" class="instituicoes-logos-rodape"
+                alt="Instituições vinculadas ao projeto">
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="./assets/js/script-modulo.js"></script>
+
+    <script>
+        const totalPages = 4;
+        let currentPage = 1;
+
+        const pageIndicator = document.getElementById('page-indicator');
+        const dotsContainer = document.getElementById('dots-container');
+        const pageNumber = document.getElementById('pageNumber');
+        const pageControl = document.getElementById('pageControl');
+        const conteudoContainer = document.getElementById('conteudo-pagina-container');
+
+        // Conteúdos de cada página
+        const pagesContent = [
+            `
+ <section id="banner-modulo"
                 style="background-image: url(./assets/images/homem-praticar-ioga-banner-modulo-1.jpg);">
                 <div class="overlap-black"></div>
                 <div class="box-texto-banner">
@@ -77,54 +131,99 @@
                     </p>
                 </div>
             </section>
-        </main> <!-- conteudo-pagina-container -->
-    </div><!-- pagina-modulo -->
-
-    <!-- Controle principal -->
-    <div class="pagination-container">
-        <h2>Progresso do Módulo</h2>
-        <div class="nav-buttons">
-            <div class="nav-button" onclick="prevPage()">
-                <div class="circle">←</div>
-                <span>RETORNAR</span>
+        `,
+            `
+                    <section class="texto-corrido-container" style="position: relative;">
+                <h2>1. Trajetória das PICS no Brasil e ao Redor do Mundo</h2>
+                <p>
+                    Bem, ABHNER, Com a finalidade de contextualizar o percurso das Práticas Integrativas e
+                    Complementares em Saúde (PICS) no Brasil, a fala a seguir apresenta a história recente e o
+                    reconhecimento das PICS por meio de Políticas Públicas. Para auxiliar-nos nesse debate, apresentamos
+                    a fala da Profa. Dra. Islândia Maria Carvalho de Sousa, Pesquisadora e Docente de Pós-Graduação em
+                    Saúde Pública do Instituto de Pesquisas Aggeu Magalhães — Fiocruz Pernambuco e Coordenadora do
+                    Observatório Nacional de Saberes e Práticas Tradicionais, Integrativas e Complementares em Saúde
+                    (ObservaPICS).
+                </p>
+                <p>
+                    Sugerimos a Leitura da Política Nacional de Práticas Integrativas e Complementares do SUS,
+                    disponível em <a
+                        href="https://drive.google.com/file/d/17ATXr_G9Y3u1-J9gUIbn1feWr-w8SZj9/view?usp=sharing">Política
+                        Nacional de Práticas Integrativas e Complementares no SUS</a>.
+                </p>
+                <div class="imagem-container">
+                    <figure>
+                        <img src="assets/images/mulher-branca-praticando-ioga.jpg" alt="Mulher branca praticando Ioga">
+                    </figure>
+                </div>
+                <p>
+                    A Organização Mundial da Saúde (OMS) ampliou o estímulo às práticas/saberes em saúde tradicional,
+                    denominadas Medicinas
+                    Tradicionais Complementares e Integrativas (MTCI), para que assumam um espaço como recursos de
+                    cuidado pelos sistemas
+                    nacionais de saúde.
+                </p>
+                <p>
+                    Desde então, diversos países reconheceram e inseriram diversas práticas integrativas em seus
+                    sistemas de saúde, com
+                    avanços importantes relativos à legitimação e regulamentação destas.
+                </p>
+            </section>
+            <section class="caixa-estilizada-container">
+                <div class="caixa-estilizada" style="max-width: 900px;">
+                    <h2>Saiba mais:</h2>
+                    <p>
+                        Para facilitar a compreender este contexto histórico mundial, apresentamos a fala da Profa Dra.
+                        Madel Therezinha Luz,
+                        filósofa e pesquisadora na área de sociologia da saúde, com produção em temas relacionados às
+                        racionalidades médicas e
+                        práticas integrativas e complementares em saúde (PICS).
+                    </p>
+                    <div class="video-wrapper">
+                        <div class="video-background"></div>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/z90QXxEBhgo"
+                                title="Como Surgiram as Práticas Integrativas e Complementares em Saúde - PICS" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        `,
+            `
+        <section class="texto-corrido-container">
+            <div class="caixa-azul">
+                <p>
+                    Esta é a terceira página do conteúdo. Aqui exploramos as bases científicas que validam o uso das práticas integrativas.
+                </p>
+                <p>
+                    Serão apresentados estudos de caso e dados de pesquisas realizadas no Brasil e no exterior.
+                </p>
             </div>
-
-            <div class="page-indicator" id="page-indicator">Página 1 de 4</div>
-
-            <div class="nav-button" onclick="nextPage()">
-                <span>AVANÇAR</span>
-                <div class="circle">→</div>
+        </section>
+        `,
+            `
+        <section class="texto-corrido-container">
+            <div class="caixa-azul">
+                <p>
+                    Página 4: Finalizando o módulo, você será convidado(a) a preencher uma autoavaliação e refletir sobre as práticas apresentadas.
+                </p>
+                <p>
+                    Agradecemos sua participação!
+                </p>
             </div>
-        </div>
-        <div class="dots" id="dots-container">
-            <!-- Dots gerados dinamicamente -->
-        </div>
-    </div>
-
-    <!-- Controle flutuante -->
-    <div class="page-control" id="pageControl">
-        <button class="circle-btn" onclick="prevPage()">←</button>
-        <div class="page-number" id="pageNumber">Página 1</div>
-        <button class="circle-btn" onclick="nextPage()">→</button>
-    </div>
-
-    <footer id="footer-pagina-modulo" style="background-image: url(./assets/images/bg-rodape.png);"></footer>
-
-    <script type="text/javascript" src="./assets/js/script-modulo.js"></script>
-
-    <script>
-        const totalPages = 4;
-        let currentPage = 1;
-
-        const pageIndicator = document.getElementById('page-indicator');
-        const dotsContainer = document.getElementById('dots-container');
-        const pageNumber = document.getElementById('pageNumber');
-        const pageControl = document.getElementById('pageControl');
+        </section>
+        `
+        ];
 
         function updateUI() {
-            // Atualiza ambos os textos
+            // Atualiza os textos
             pageIndicator.textContent = `Página ${currentPage} de ${totalPages}`;
             pageNumber.textContent = `Página ${currentPage}`;
+
+            // Atualiza o conteúdo
+            conteudoContainer.innerHTML = pagesContent[currentPage - 1];
 
             // Atualiza os dots
             dotsContainer.innerHTML = '';
@@ -139,6 +238,9 @@
                 };
                 dotsContainer.appendChild(dot);
             }
+
+            // Scroll para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function prevPage() {
@@ -170,6 +272,7 @@
         // Inicialização
         updateUI();
     </script>
+
 </body>
 
 </html>
