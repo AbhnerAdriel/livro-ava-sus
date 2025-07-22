@@ -526,7 +526,7 @@
 
 
 /* ============= Responsividade ============= */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     #imagem-texto-container {
         flex-direction: column;
         text-align: center;
@@ -546,4 +546,178 @@
     .text-section p {
         font-size: 1rem;
     }
+} */
+
+/* Tablets e telas menores (<= 1024px) */
+@media (max-width: 1024px) {
+  #cabecalho-topo-modulo {
+    margin: 20px auto 40px;
+    padding: 0 20px;
+  }
+
+  #titulo-modulo .assumto-tema-modulo {
+    font-size: 1.5rem;
+  }
+
+  .imagem-texto-container {
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .imagem-texto-container .text-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .caixa-estilizada-container .video-wrapper iframe {
+    height: 300px;
+  }
+
+  .caixa-azul {
+    padding: 25px 20px;
+  }
+
+  .pagination-container {
+    padding: 20px;
+  }
+}
+
+/* Celulares grandes e phablets (<= 768px) */
+@media (max-width: 768px) {
+  .imagem-texto-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imagem-texto-container .text-content,
+  .imagem-texto-container .image-content {
+    width: 100%;
+  }
+
+  .imagem-texto-container .text-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .imagem-texto-container .text-content p {
+    font-size: 1rem;
+  }
+
+  .texto-corrido-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .texto-corrido-container p {
+    font-size: 1rem;
+  }
+
+  .caixa-estilizada-container .caixa-estilizada {
+    padding: 20px;
+  }
+
+  .caixa-estilizada-container .caixa-estilizada h2 {
+    font-size: 1.2rem;
+  }
+
+  .caixa-estilizada-container .caixa-estilizada ol li {
+    font-size: 0.95rem;
+    padding-left: 50px;
+  }
+
+  .caixa-estilizada-container .video-wrapper iframe {
+    height: 250px;
+  }
+
+  .page-control {
+    bottom: 20px;
+    right: 20px;
+    gap: 10px;
+    padding: 8px 15px;
+  }
+
+  .page-control .circle-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .page-control .page-number {
+    font-size: 16px;
+  }
+
+  .pagination-container .nav-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pagination-container .nav-button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .pagination-container .page-indicator {
+    font-size: 18px;
+  }
+
+  .pagination-container .dot {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  #footer-pagina-modulo .instituicoes-logos-rodape {
+    width: 80%;
+  }
+}
+
+/* Celulares pequenos (<= 480px) */
+@media (max-width: 480px) {
+  #titulo-modulo .numeracao-modulo {
+    font-size: 1.2rem;
+  }
+
+  #titulo-modulo .assumto-tema-modulo {
+    font-size: 1.3rem;
+  }
+
+  .box-texto-banner {
+    width: 90% !important;
+    padding: 10px;
+  }
+
+  .box-texto-banner h2 {
+    font-size: 1.4rem !important;
+  }
+
+  .caixa-estilizada-container .video-wrapper iframe {
+    height: 200px;
+  }
+
+  .caixa-azul {
+    font-size: 1rem;
+    padding: 20px;
+  }
+
+  .pagination-container {
+    padding: 20px 15px;
+    border-radius: 30px;
+  }
+
+  .pagination-container h2 {
+    font-size: 1.2rem;
+  }
+
+  .pagination-container .dot {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .page-control {
+    flex-direction: column;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .page-control .page-number {
+    font-size: 14px;
+  }
 }
